@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <title>
+            Form
+        </title>
+    </header>
+    <style>
+        div{
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 190%;
+            font-weight: bold;
+        }
+        fieldset{
+            position: absolute;
+            left: 3%;
+            align-items: center;
+            width: 80%;
+            border:darkgreen solid 10px;
+            border-radius: 3%;
+        }
+        .heading{
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 330%;
+            font-weight: bolder;
+
+        }
+        .submit{
+            border: black solid 9px;
+            width: 60%;
+            height: 120%;
+            position: relative;
+            right: 2px;
+            font-size: 130%;
+            transition: background-color 1s, border 1s,font-size 1s;
+
+        }    
+        button:hover{
+                border:turquoise solid 7px;
+                background-color:rgb(253, 234, 57);
+                border-radius: 15%;
+                font-size: 140%;
+                transition: background-color 1s, border-radius 1s,font-size 1s, border 1.3s;
+
+            }
+        body{
+            background-image: url("form.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size:cover;
+            background-color:lightpink;
+        }
+        
+        span{
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 160%;
+            font-weight: bold;
+        }
+    </style>
+
+    <script language="JavaScript">
+        function a(){
+            
+            if(document.getElementById('fever').checked == true){
+                var fever = 1;
+            }
+            else{
+                var fever = 0;
+            }
+
+            if(document.getElementById('cough').checked == true){
+                var cough = 1;
+            }
+            else{
+                var cough = 0;
+            }
+
+            if(document.getElementById('runny_nose').checked == true){
+                var runny_nose = 1;
+            }
+            else{
+                var runny_nose = 0;
+            }
+
+            if(document.getElementById('muscle_soreness').checked == true){
+                var muscle_soreness = 1;
+            }
+            else{
+                var muscle_soreness = 0;
+            }
+
+            if(document.getElementById('pneumonia').checked == true){
+                var pneumonia = 1;
+            }
+            else{
+                var pneumonia = 0;
+            }
+           
+            if(document.getElementById('diarrhea').checked == true){
+                var diarrhea = 1;
+            }
+            else{
+                var diarrhea = 0;
+            }
+
+            if(document.getElementById('lung_infection').checked == true){
+                var lung_infection = 1;
+            }
+            else{
+                var lung_infection = 0;
+            }
+
+            if(document.getElementById('travel_history').checked == true){
+                var travel_history = 1;
+            }
+            else{
+                var travel_history = 0;
+            }
+
+            if(document.getElementById('isolation_treatment').checked == true){
+                var isolation_treatment = 1;
+            }
+            else{
+                var isolation_treatment = 0;
+            }
+
+            if(document.getElementById('male').checked == true){
+                var male = 1;
+            }
+            else{
+                var male = 0;
+            }
+            if(document.getElementById('age').value != null){
+            var age =  document.getElementById('age').value;
+            }
+            
+            var url = "http://127.0.0.1/cgi-bin/create.py?age="+age+"&fever="+fever+"&cough="+cough+"&runny_nose="+runny_nose+"&muscle_soreness="+muscle_soreness+"&pneumonia="+pneumonia+"&diarrhea="+diarrhea+"&lung_infection="+lung_infection+"&travel_history="+travel_history+"&isolation_treatment="+isolation_treatment+"&male="+male;
+            decision = confirm("Do you want to submit");
+            if(decision == true){
+                xhr = new XMLHttpRequest();
+                xhr.open('GET',url,true);
+                xhr.send();
+                xhr.onload=function (){
+                    var out = xhr.responseText;
+                    var output = out ;
+                    if(output < 0.5){
+                        document.location = "safe.html";
+                    }
+                    else{
+                        document.location = "fail.html";
+                    }
+                }
+                
+            }
+        }
+            
+            
+        
+    </script>
+
+    <body>
+        <br>
+        <fieldset>
+            <legend><em><div class="heading">Test Form</div></em></legend>
+            <form>
+                <table>
+                    <tr>
+                        <td><div>Age</div></td>
+                        <td><input id="age" name="age" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td><div>Fever</div></td>
+                        <td><input type="radio" id="fever" name="fever" value="1"><span>Yes</span> <input type="radio" value="0" name="fever"><span>No</span></td>
+                    </tr>
+                    <tr>
+                        <td><div>Cough</div></td>
+                        <td><input type="radio" id="cough" name="cough" value="1"><span>Yes</span><input type="radio" name="cough" value="0"><span>No</span></td>
+                    </tr>
+                    <tr>
+                        <td><div>Runny Nose</div></td>
+                        <td><input type="radio" id="runny_nose" name="runny_nose" value="1"><span>Yes</span> <input type="radio" value="0" name="runny_nose"><span>No</span></td>
+                    </tr>
+                    <tr>
+                        <td><div>Muscle Soreness</div></td>
+                        <td><input type="radio" id="muscle_soreness" name="muscle_soreness" value="1" ><span>Yes</span><input type="radio" name="muscle_soreness" value="0"><span>No</span></td>
+                    </tr>
+                    <tr>
+                        <td><div>Pneumonia</div></td>
+                        <td><input type="radio" id="pneumonia" name="pneumonia" value="1"><span>Yes</span><input type="radio" name="pneumonia" value="0"><span>No</span></td>
+                    </tr>
+                    <tr>
+                        <td><div>Diarrhea</div></td>
+                        <td><input type="radio" id="diarrhea" name="diarrhea" value="1"><span>Yes</span><input type="radio" name="diarrhea" value="0"><span>No</span></td>
+                    </tr>
+                    <tr>
+                        <td><div>Lung Infection/Problem</div></td>
+                        <td><input type="radio" id="lung_infection" value="1" name="lung_infection"><span>Yes</span> <input type="radio" value="0" name="lung_infection"><span>No</span></td>
+                    </tr>
+                    <tr>
+                        <td><div>Travel History</div></td>
+                        <td><input type="radio" id="travel_history" name="travel_history" value="1"><span>Yes</span><input type="radio" name="travel_history" value="0"><span>No</span></td>
+                    </tr>
+                    <tr>
+                        <td><div>Isolation Treatment</div></td>
+                        <td><input type="radio" id="isolation_treatment" value="1" name="isolation_treatment" value="1"><span>Yes</span> <input type="radio" name="isolation_treatment" value="0"><span>No</span></td>
+                    </tr>
+                    <tr>
+                        <td><div>Gender</div></td>
+                        <td><input type="radio" id="male" name="male" value="1"><span>Male</span><input type="radio" name="male" value="0"><span>Female</span></td>
+                    </tr>
+                </table>
+                <br>
+                <br>
+            </form>
+            <button class="submit"  onclick="a();">Test</button>
+                <br>
+                <br>
+                <br>
+        </fieldset>
+    </body>
+</html>

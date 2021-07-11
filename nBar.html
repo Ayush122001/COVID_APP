@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <style>
+         ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+            }
+
+            li {
+                float: left;
+            }
+
+            li a {
+                display: block;
+                padding: 10px;
+                background-color:lightblue;
+                font-size: 200%;
+                border: black solid 1px;
+                border-radius: 20%;
+                transition: background-color 1s, border-radius 1s,font-size 1s;
+            }
+
+            a:hover{
+                border:turquoise solid 3px;
+                background-color:darksalmon;
+                border-radius: 30%;
+                font-size: 210%;
+                transition: background-color 1s, border-radius 1s,font-size 1s, border 1.3s;
+
+            }
+
+            body{
+                background-color: lavender;
+            }
+            div{
+                text-align: center;
+                font-family: 'Courier New', Courier, monospace;
+                font-size: 440%;
+                font-weight: bolder;
+            }
+        
+    </style>
+
+    <body>
+        <div>SARS-CoV-2 Test</div>
+        <ul>
+            <li><a href="home.html" target="b" style="position: relative;left: 2%;">Home</a></li>
+            <li><a href="form.html" target="b" style="position: relative;left: 15%;">Test</a></li>
+            <li><a href="about.html" target="b" style="position: relative;left: 15%;">Contact</a></li>
+        </ul>
+    </body>
+</html>
