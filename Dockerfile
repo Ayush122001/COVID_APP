@@ -24,4 +24,5 @@ COPY home1.jpg /var/www/html/home1.jpg
 
 COPY fail.jpg /var/www/html/fail.jpg
 
+CMD ["/usr/sbin/httpd", "-D","FOREGROUND"]
 
