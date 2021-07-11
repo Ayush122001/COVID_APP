@@ -1,4 +1,4 @@
-FROM ayush122001/keras-flask
+FROM ayush122001/keras-flask:v1
 
 RUN yum install httpd -y
 
